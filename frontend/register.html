@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký - MiniMusic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="MiniMusic Logo" class="logo-img">
+    </a>
+    <nav>
+      <a href="register.html" class="nav-button">Đăng Ký</a>
+      <a href="login.html" class="nav-button primary">Đăng Nhập</a>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <h2>Đăng ký tài khoản</h2>
+    <p>Tạo tài khoản MiniMusic của bạn</p>
+    
+    <form id="register-form">
+      
+      <div>
+        <label for="username">Tên người dùng</label>
+        <input type="text" id="username" required>
+      </div>
+      
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+
+      <div>
+        <label for="password">Mật khẩu</label>
+        <input type="password" id="password" required>
+      </div>
+
+      <button type="submit" id="submit-button">Đăng ký</button>
+    </form>
+    
+    <p id="message"></p>
+    
+    <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
