@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       myPlaylistsList.innerHTML = "";
       playlists.forEach((pl) => {
         const li = document.createElement("li");
-        li.innerHTML = `<a href="#">${pl.name}</a>`;
+        li.innerHTML = `<a href="my-playlists.html">${pl.name}</a>`;
         li.setAttribute("data-playlist-id", pl.playlist_id);
         myPlaylistsList.appendChild(li);
       });
@@ -200,37 +200,16 @@ document.addEventListener("DOMContentLoaded", () => {
     currentIndex = index;
     const song = currentSongs[index];
     
-    console.log("Đang phát bài hát:", song.title);
+    console.log("Đang chuyển sang trang player:", song.title);
     
-    player.src = song.file_url;
-    songTitleEl.textContent = `Đang phát: ${song.title} - ${song.artist_name}`;
+    // Lưu thông tin bài hát vào localStorage
+    localStorage.setItem("currentSong", JSON.stringify(song));
     
-    // Hiển thị player bar
-    musicPlayerBar.style.display = "flex";
+    // Lưu queue (danh sách bài hát) vào localStorage
+    localStorage.setItem("currentQueue", JSON.stringify(currentSongs));
     
-    // Setup fullscreen player
-    fullscreenTitle.textContent = song.title;
-    fullscreenArtist.textContent = song.artist_name;
-    fullscreenAlbumArt.src = song.cover_art_url;
-    
-    // Hiển thị fullscreen player
-    fullscreenPlayer.style.display = "flex";
-    
-    player.play().then(() => {
-      console.log("Phát nhạc thành công");
-      isPlaying = true;
-      playPauseBtn.textContent = "⏸";
-      fullscreenPlayPauseBtn.textContent = "⏸";
-      
-      // Setup audio context cho waveform sau khi play
-      if (!audioContext) {
-        setupAudioContext();
-      }
-      
-      animateWaveform();
-    }).catch(err => {
-      console.error("Lỗi phát nhạc:", err);
-    });
+    // Chuyển sang trang player
+    window.location.href = "player.html";
   }
   
   // Setup audio context cho waveform visualization (TẠM THỜI KHÔNG DÙNG ĐỂ TRÁNH CORS)
@@ -450,38 +429,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ===== PHẦN 10.5: CLICK ICON KÍNH LÚP ĐỂ TÌM KIẾM =====
+  const searchBox = document.querySelector(".search-box");
+  
+  if (searchBox && searchInput) {
+    searchBox.addEventListener("click", (e) => {
+      // Click vào khu vực icon (left < 60px từ trái)
+      const rect = searchBox.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      
+      if (clickX < 60) {
+        e.preventDefault();
+        e.stopPropagation();
+        const query = searchInput.value.trim();
+        
+        if (query) {
+          // Có text trong input -> Tìm kiếm
+          console.log("🔍 Tìm kiếm:", query);
+          handleSearch(query);
+        } else {
+          // Không có text -> Focus vào input
+          console.log("✅ Focus vào input...");
+          searchInput.focus();
+        }
+        
+        return false;
+      }
+    });
+  }
+
   // ===== PHẦN 11: KÍCH HOẠT NÚT TẠO PLAYLIST =====
   const createPlaylistBtn = document.getElementById("create-playlist-btn");
   if (createPlaylistBtn) {
-    createPlaylistBtn.addEventListener("click", async () => {
+    createPlaylistBtn.addEventListener("click", () => {
       const token = localStorage.getItem("minimusic_token");
       if (!token) {
-        alert("Bạn cần đăng nhập để tạo playlist!");
+        alert("Bạn cần đăng nhập để xem playlists!");
         window.location.href = "login.html";
         return;
       }
-      const playlistName = prompt("Nhập tên playlist mới:");
-      if (playlistName) {
-        try {
-          const response = await fetch("http://localhost:3001/api/playlists", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ name: playlistName }),
-          });
-          const data = await response.json();
-          if (response.ok) {
-            alert(`Tạo playlist "${playlistName}" thành công!`);
-            fetchMyPlaylists(token);
-          } else {
-            alert(data.message);
-          }
-        } catch (error) {
-          console.error("Lỗi tạo playlist:", error);
-        }
-      }
+      // Chuyển sang trang quản lý playlists
+      window.location.href = "my-playlists.html";
     });
   }
 
