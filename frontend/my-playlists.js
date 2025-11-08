@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
       playlistCard.addEventListener("click", () => {
         // TODO: Mở trang chi tiết playlist
-        console.log("Click vào playlist:", playlist.name);
+        window.location.href = `playlist-detail.html?id=${playlist.playlist_id}`;
       });
       
       playlistsGrid.appendChild(playlistCard);

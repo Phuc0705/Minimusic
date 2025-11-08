@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lịch sử nghe - MiniMusic</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="MiniMusic Logo" class="logo-img">
+    </a>
+    <div class="search-box">
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+      <input type="search" id="search-input" placeholder="Bạn muốn tìm nội dung nào?">
+    </div>
+    <nav></nav>
+  </header>
+
+  <div class="playlist-page-container">
+    <aside class="playlist-sidebar">
+      <div class="category-card" onclick="location.href='index.html'"><h4>Home</h4></div>
+      <div class="category-card" onclick="location.href='my-playlists.html'"><h4>My Playlists</h4></div>
+      <hr>
+      <div class="categories-list">
+        <h4>Categories</h4>
+        <div class="category-item">Lofi</div>
+        <div class="category-item">Chill</div>
+      </div>
+    </aside>
+
+    <main class="playlist-main-content">
+      <div class="playlist-header">
+        <img id="playlist-cover" src="assets/images/history-cover.png" alt="History Cover"> 
+        <div>
+          <h1 class="page-title">Lịch sử nghe nhạc</h1>
+          <p id="playlist-owner">Những bài hát bạn đã nghe gần đây</p>
+          <p id="playlist-song-count">... bài hát</p>
+        </div>
+      </div>
+      
+      <hr>
+
+      <div class="vertical-list" id="song-list-container">
+        <!-- Danh sách bài hát sẽ được chèn bằng JS -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Music Player Bar -->
+  <div class="music-player-bar" id="music-player-bar" style="display: none;">
+    <div class="player-left">
+      <span id="current-song-title">Chọn một bài hát để phát</span>
+    </div>
+    <div class="player-center">
+      <div class="player-controls">
+        <button class="control-btn" id="prev-btn" title="Bài trước">Previous</button>
+        <button class="control-btn" id="rewind-btn" title="Tua ngược 10s">Rewind</button>
+        <button class="control-btn play-pause" id="play-pause-btn" title="Phát/Tạm dừng">Play</button>
+        <button class="control-btn" id="forward-btn" title="Tua tới 10s">Forward</button>
+        <button class="control-btn" id="next-btn" title="Bài tiếp">Next</button>
+      </div>
+      <div class="player-progress">
+        <span id="current-time">0:00</span>
+        <input type="range" id="progress-bar" min="0" max="100" value="0">
+        <span id="duration">0:00</span>
+      </div>
+    </div>
+    <div class="player-right">
+      <audio id="music-player"></audio>
+    </div>
+  </div>
+
+  <!-- TÁI SỬ DỤNG PLAYER TỪ FAVORITES -->
+  <script src="favorites.js"></script>
+
+  <!-- BẮT BUỘC: LOAD HISTORY.JS ĐỂ LẤY DỮ LIỆU -->
+  <script src="history.js"></script>
+</body>
+</html>

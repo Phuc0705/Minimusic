@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "> Đồ án tích hợp 3 môn: **Web Development**, **Database**, và **Mobile Development**",
   "dependencies": {
     "axios": "^1.12.2",
     "bcryptjs": "^3.0.2",
@@ -16,5 +17,13 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.15.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Phuc0705/Minimusic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Phuc0705/Minimusic/issues"
+  },
+  "homepage": "https://github.com/Phuc0705/Minimusic#readme"
 }

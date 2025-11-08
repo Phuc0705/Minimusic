@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="album-title">Album</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="MiniMusic Logo" class="logo-img">
+    </a>
+    <div class="search-box">
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+      <input type="search" id="search-input" placeholder="Tìm trong album...">
+    </div>
+    <nav>
+      <a href="register.html" class="nav-button">Đăng Ký</a>
+      <a href="login.html" class="nav-button primary">Đăng Nhập</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main class="content">
+      <section class="album-header" style="text-align: center; padding: 40px 20px; background: #111;">
+        <img id="album-image" src="https://via.placeholder.com/200x200/333333/FFFFFF?text=Album" alt="Album Cover" style="width:200px; height:200px; border-radius:12px; object-fit:cover; margin-bottom:16px;">
+        <h1 id="album-name" style="font-size: 2.5em; margin: 0; color: #fff;"></h1>
+        <p id="album-artist" style="color: #aaa; margin: 8px 0;"></p>
+      </section>
+
+      <section class="song-section">
+        <h3>Bài hát trong album</h3>
+        <div id="album-songs-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="album.js"></script>
+</body>
+</html>

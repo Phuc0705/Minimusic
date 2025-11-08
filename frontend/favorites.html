@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Danh sách nhạc của tôi - MiniMusic</title>
+  <title>Bài hát Yêu thích - MiniMusic</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,62 +20,35 @@
       <input type="search" id="search-input" placeholder="Bạn muốn tìm nội dung nào?">
     </div>
     <nav>
-      <a href="index.html" class="nav-button">Trang chủ</a>
-      <a href="login.html" class="nav-button" id="logout-button" style="display: none;">Đăng Xuất</a>
-      <a href="login.html" class="nav-button primary" id="login-button">Đăng Nhập</a>
-    </nav>
+      </nav>
   </header>
 
   <div class="playlist-page-container">
-    <!-- Sidebar -->
     <aside class="playlist-sidebar">
-      <div class="category-card">
-        <h4>New Song</h4>
-      </div>
-      <div class="category-card">
-        <h4>Hot Now</h4>
-      </div>
+      <div class="category-card" onclick="location.href='index.html'"><h4>🏠 Home</h4></div>
+      <div class="category-card" onclick="location.href='my-playlists.html'"><h4>🎵 My Playlists</h4></div>
       <hr>
       <div class="categories-list">
         <h4>Categories</h4>
         <div class="category-item">Lofi</div>
         <div class="category-item">Chill</div>
-        <div class="category-item">Rap</div>
-        <div class="category-item">Pop</div>
-        <div class="category-item">Rock</div>
       </div>
-      
     </aside>
 
-    <!-- Main Content -->
     <main class="playlist-main-content">
-      <h1 class="page-title">DANH SÁCH NHẠC CỦA TÔI</h1>
+      <div class="playlist-header">
+        <img id="playlist-cover" src="assets/images/favorites-cover.png" alt="Favorites Cover"> 
+        <div>
+          <h1 class="page-title" id="playlist-name">Bài hát Yêu thích</h1>
+          <p id="playlist-owner">Danh sách các bài hát bạn đã Like</p>
+          <p id="playlist-song-count">... bài hát</p>
+        </div>
+      </div>
       
-      <!-- Existing Playlists Grid -->
-      <div class="playlists-grid" id="playlists-grid">
-        <!-- Playlists will be loaded here -->
-      </div>
+      <hr>
 
-      <!-- Create Playlist Section -->
-      <div class="create-playlist-section">
-        <hr>
-        <div class="create-playlist-header">
-          <div class="create-icon-text">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-            <span>Tạo danh của riêng bạn</span>
-          </div>
-          <span class="view-all-text">Xem tất cả</span>
+      <div class="vertical-list" id="song-list-container">
         </div>
-        
-        <div class="create-playlist-form">
-          <input type="text" id="new-playlist-name" placeholder="Tạo danh sách phát mới">
-          <button id="create-playlist-submit-btn">Tạo</button>
-        </div>
-        <p id="playlist-message"></p>
-      </div>
     </main>
   </div>
 
@@ -102,7 +75,5 @@
     </div>
   </div>
 
-  <script src="my-playlists.js"></script>
-</body>
+  <script src="favorites.js"></script> </body>
 </html>
-

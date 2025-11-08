@@ -1640,3 +1640,74 @@ body > .form-container {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 }
+/* ===== CSS CHO NÚT LIKE ===== */
+.like-btn svg {
+  transition: fill 0.2s ease-in-out, stroke 0.2s ease-in-out;
+  stroke: currentColor; /* Màu viền ban đầu */
+  fill: none; /* Không tô màu ban đầu */
+}
+
+.like-btn svg path {
+  stroke: #bbb;
+  fill: none;
+  transition: all .25s ease;
+}
+
+.like-btn.liked svg path {
+  stroke: #ff4d6d; /* hoặc #1DB954 nếu thích màu Spotify */
+  fill: #ff4d6d;
+}
+.song-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.song-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+.song-cover {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.song-info {
+  flex: 1;
+  margin-left: 12px;
+}
+.song-title {
+  font-weight: 600;
+  color: white;
+}
+.song-artist {
+  font-size: 0.9em;
+  color: #aaa;
+}
+.song-duration {
+  margin-right: 10px;
+  color: #ccc;
+}
+.play-btn {
+  background: none;
+  border: none;
+  font-size: 1.4em;
+  cursor: pointer;
+  color: #1db954;
+}
+.horizontal-item {
+  min-width: 100px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+
+.horizontal-item img {
+  transition: transform 0.2s;
+}
+
+.horizontal-item:hover img {
+  transform: scale(1.05);
+}

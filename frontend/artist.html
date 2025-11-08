@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="artist-name">Nghệ sĩ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html" class="logo-link">
+      <img src="assets/images/logo.png" alt="MiniMusic Logo" class="logo-img">
+    </a>
+    <div class="search-box">
+      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <path d="m21 21-4.35-4.35"></path>
+      </svg>
+      <input type="search" id="search-input" placeholder="Tìm trong nghệ sĩ...">
+    </div>
+    <nav>
+      <a href="register.html" class="nav-button">Đăng Ký</a>
+      <a href="login.html" class="nav-button primary">Đăng Nhập</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main class="content">
+      <section class="artist-header" style="text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #1a1a1a, #2a2a2a);">
+        <img id="artist-image" src="" alt="" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 16px;">
+        <h1 id="artist-title" style="font-size: 2.5em; margin: 0; color: #fff;"></h1>
+      </section>
+
+      <section class="song-section">
+  <h3 id="songs-title">Bài hát của nghệ sĩ</h3>
+  <div id="artist-songs-list" class="horizontal-list" style="padding: 0 20px;"></div>
+</section>
+    </main>
+  </div>
+
+  <script src="artist.js"></script>
+</body>
+</html>
